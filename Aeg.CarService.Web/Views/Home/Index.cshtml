@@ -46,7 +46,7 @@
 
 
 <section class="AegCarServiceAnnouncements ">
-   
+
     <div class="container mt-4">
         @if (ViewBag.Announcements != null)
         {
@@ -59,31 +59,23 @@
             </div>
         }
         <hr />
+        <h1 class="text-center">Our Services</h1>
         <div class="row text-center">
-            <div class="col-md-4 ">
-                <div class="card">
-                    <img src="~/Images/Card/aegservice - Copy.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Brake Disc Repair</h5>
+            @if (ViewBag.Services != null)
+            {
+                var services = ViewBag.Services as List<Services>;
+                foreach (var item in services)
+                {
+                    <div class="col-md-4 my-3">
+                        <div class="card">
+                            <img src="@item.Image" class="card-img-top" alt="@item.Header">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Header</h5>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="~/Images/Card/aegservice - Copy.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Engine Repair</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="~/Images/Card/aegservice - Copy.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Periodic Maintenance</h5>
-                    </div>
-                </div>
-            </div>
+                }
+            }
         </div>
     </div>
 </section>
