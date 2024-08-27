@@ -1,0 +1,26 @@
+﻿@model Aeg.CarService.Entity.Web.Announcements
+@{
+    ViewBag.Title = "Announcements";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/path/to/tiny_mce/themes/advanced/theme.min.css" />
+@using (Html.BeginForm("SaveAnnouncements", "Announcements"))
+{
+    <div class="row">
+        <div class="col">
+            @Html.TextAreaFor(model => model.Content, new { @class = "form-control", id = "myEditor" })
+            <input type="submit" class="btn btn-primary" value="Save" />
+        </div>
+    </div>
+}
+
+
+<script src="https://cdn.jsdelivr.net/npm/tinymce@5.10.0/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '#myEditor',
+        plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table contextmenu paste code help',
+        toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+        content_css: '//www.tiny.cloud/css/codepen.min.css'
+    });
+</script>
