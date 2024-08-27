@@ -10,6 +10,7 @@ namespace IdentitySample.Controllers
         private readonly Repository<Slider> repoSlider = new Repository<Slider>();
         private readonly Repository<Announcements> repoAnnouncements = new Repository<Announcements>();
         private readonly Repository<Services> repoServices = new Repository<Services>();
+        private readonly Repository<About> repoAbout = new Repository<About>();
         [HttpGet]
         public ActionResult Index()
         {
@@ -22,8 +23,7 @@ namespace IdentitySample.Controllers
         [HttpGet]
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
-
+            ViewBag.About = repoAbout.List().FirstOrDefault();
             return View();
         }
 

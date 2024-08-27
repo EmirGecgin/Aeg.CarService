@@ -1,0 +1,43 @@
+﻿@model Aeg.CarService.Entity.Web.About
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/path/to/tiny_mce/themes/advanced/theme.min.css" />
+@using (Html.BeginForm("SaveAbout", "About", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="Image">Choose an image</label>
+            <input type="file" class="form-control" name="Image" />
+        </div>
+        <div class="col-md-12 mb-3">
+            <label for="Content">Write a motto</label>
+            @Html.TextAreaFor(model => model.Motto, new { @class = "form-control", id = "myEditorMotto" })
+        </div>
+        <div class="cold-md-12 mb-3">
+            <label for="Content">Write a content</label>
+            @Html.TextAreaFor(model => model.Content, new { @class = "form-control", id = "myEditorContent" })
+        </div>
+        <div class="col-md-2">
+            <input class="btn btn-primary" type="submit" value="Save" />
+        </div>
+    </div>
+}
+    <script src="https://cdn.jsdelivr.net/npm/tinymce@5.10.0/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#myEditorContent',
+            plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table contextmenu paste code help',
+            toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+            content_css: '//www.tiny.cloud/css/codepen.min.css'
+        });
+    </script>
+    <script>
+        tinymce.init({
+            selector: '#myEditorMotto',
+            plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table contextmenu paste code help',
+            toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+            content_css: '//www.tiny.cloud/css/codepen.min.css'
+        });
+    </script>
