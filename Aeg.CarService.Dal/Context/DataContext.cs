@@ -14,5 +14,6 @@ namespace Aeg.CarService.Dal
         public DbSet <Announcements> Announcements { get; set; }
         public DbSet<Services> Services { get; set; }
         DbSet<About> Abouts { get; set; }
+        DbSet<Blog> Blogs { get; set; }
     }
 }

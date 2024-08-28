@@ -265,6 +265,7 @@
     <Compile Include="Controllers\UsersAdminController.cs" />
     <Compile Include="Controllers\Web\AboutController.cs" />
     <Compile Include="Controllers\Web\AnnouncementsController.cs" />
+    <Compile Include="Controllers\Web\BlogController.cs" />
     <Compile Include="Controllers\Web\ServicesController.cs" />
     <Compile Include="Controllers\Web\SliderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -289,6 +290,11 @@
     <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\Create.cshtml" />
+    <Content Include="Views\Home\BlogDetails.cshtml" />
+    <Content Include="Views\Blog\Delete.cshtml" />
+    <Content Include="Views\Blog\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

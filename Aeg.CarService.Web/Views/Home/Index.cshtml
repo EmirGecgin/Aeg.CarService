@@ -1,4 +1,5 @@
 ﻿@using Aeg.CarService.Entity.Web;
+@using System.Text.RegularExpressions;
 @{
     ViewBag.Title = "Car Service";
 }
@@ -83,38 +84,34 @@
     <div class="container">
         <div class="row mt-4">
             <h1 class="text-center mb-4">Blogs</h1>
-            <div class="col-md-6 mb-2">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Engine Repair</h5>
-                        <p class="">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            @if (ViewBag.Blogs != null)
+            {
+                var blog = ViewBag.Blogs as List<Blog>;
+                foreach (var item in blog)
+                {
+                    <div class="col-md-6 mb-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Header</h5>
+                                <hr />
+                                @{
+                                    string content = Regex.Replace(item.Content, "<.*?>", string.Empty);
+                                    if (content.Length > 200)
+                                    {
+                                        content = content.Substring(0, 200) + "...";
+                                    }
+                                    @content
+                                }
+                            <div class="mt-2">
+                                <a href="/Home/BlogDetails/@item.Id" class="btn btn-primary">Details</a>
+                            </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-2">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Engine Repair</h5>
-                        <p class="">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-2">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Engine Repair</h5>
-                        <p class="">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-2 border-white">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class=" card-title">Engine Repair</h5>
-                        <p class="">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-            </div>
+                }
+
+            }
+
         </div>
     </div>
 </section>

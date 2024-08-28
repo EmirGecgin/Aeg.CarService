@@ -11,12 +11,14 @@ namespace IdentitySample.Controllers
         private readonly Repository<Announcements> repoAnnouncements = new Repository<Announcements>();
         private readonly Repository<Services> repoServices = new Repository<Services>();
         private readonly Repository<About> repoAbout = new Repository<About>();
+        private readonly Repository<Blog> repoBlog = new Repository<Blog>();
         [HttpGet]
         public ActionResult Index()
         {
             ViewBag.Slider = repoSlider.List();
             ViewBag.Announcements = repoAnnouncements.List().FirstOrDefault();
             ViewBag.Services = repoServices.List();
+            ViewBag.Blogs = repoBlog.Get().OrderByDescending(x=>x.Id).Take(4).ToList();
             return View();
         }
 
@@ -37,6 +39,11 @@ namespace IdentitySample.Controllers
         public ActionResult Deneme()
         {
             return View();
+        }
+        public ActionResult BlogDetails(int id)
+        {
+            var blog = repoBlog.GetById(id);
+            return View(blog);
         }
     }
 }

@@ -1,0 +1,13 @@
+﻿@model Aeg.CarService.Entity.Web.Blog
+
+@{
+    ViewBag.Title = Model.Header;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">@Model.Header</h1>
+    <p class="mb-4">@Html.Raw(Model.Content)</p>
+    <p><span class="fw-bold small">Date: @Model.Date.ToShortDateString() </span> </p>
+</div>
+
