@@ -261,6 +261,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Web\MapContactController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UsersAdminController.cs" />
     <Compile Include="Controllers\Web\AboutController.cs" />
@@ -295,6 +296,7 @@
     <Content Include="Views\Home\BlogDetails.cshtml" />
     <Content Include="Views\Blog\Delete.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\MapContact\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

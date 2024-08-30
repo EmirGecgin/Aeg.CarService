@@ -65,10 +65,10 @@
         @RenderBody()
         <hr />
         <footer class="text-center">
-            <p>&copy; @DateTime.Now.Year - Aeg.CarService</p>
             <address>
-                Skopje Turkish Bazaar MK, Skopje 1000, North Macedonia
+                @Html.Raw(ViewBag.MapContact.Contact)
             </address>
+            <p>&copy; @DateTime.Now.Year - Aeg.CarService</p>
         </footer>
     </div>
 

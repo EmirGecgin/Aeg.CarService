@@ -73,6 +73,7 @@
     <Compile Include="Web\About.cs" />
     <Compile Include="Web\Announcements.cs" />
     <Compile Include="Web\Blog.cs" />
+    <Compile Include="Web\MapContact.cs" />
     <Compile Include="Web\Services.cs" />
     <Compile Include="Web\Slider.cs" />
   </ItemGroup>
