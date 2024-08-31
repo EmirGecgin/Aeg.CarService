@@ -1,4 +1,6 @@
-﻿using IdentitySample.Models;
+﻿using Aeg.CarService.Bll.Abstract;
+using Aeg.CarService.Entity.Web;
+using IdentitySample.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -12,6 +14,8 @@ namespace IdentitySample.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private readonly Repository<MapContact> repoMapContact = new Repository<MapContact>();
+
         public AccountController()
         {
         }
@@ -42,6 +46,7 @@ namespace IdentitySample.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            ViewBag.MapContact = repoMapContact.List().FirstOrDefault();
             return View();
         }
 
@@ -137,6 +142,8 @@ namespace IdentitySample.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.MapContact = repoMapContact.List().FirstOrDefault();
+
             return View();
         }
 
@@ -186,6 +193,8 @@ namespace IdentitySample.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
+            ViewBag.MapContact = repoMapContact.List().FirstOrDefault();
+
             return View();
         }
 
@@ -222,6 +231,8 @@ namespace IdentitySample.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
+            ViewBag.MapContact = repoMapContact.List().FirstOrDefault();
+
             return View();
         }
 
@@ -266,6 +277,8 @@ namespace IdentitySample.Controllers
         [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
         {
+            ViewBag.MapContact = repoMapContact.List().FirstOrDefault();
+
             return View();
         }
 

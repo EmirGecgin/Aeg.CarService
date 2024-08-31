@@ -10,4 +10,11 @@
     <p class="mb-4">@Html.Raw(Model.Content)</p>
     <p><span class="fw-bold small">Date: @Model.Date.ToShortDateString() </span> </p>
 </div>
+<footer class="text-center container">
+    <hr />
+    <address>
+        @Html.Raw(ViewBag.MapContact.Contact)
+    </address>
+    <p>&copy; @DateTime.Now.Year - Aeg.CarService</p>
+</footer>
 
