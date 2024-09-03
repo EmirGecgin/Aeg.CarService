@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Aeg.CarService.Web.Controllers.Web
 {
+    [Authorize(Roles = "Admin")]
     public class SliderController : Controller
     {
         private readonly Repository<Slider> repoSlider = new Repository<Slider>();

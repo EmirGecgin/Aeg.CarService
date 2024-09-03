@@ -25,8 +25,7 @@
                     </li>
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <li class="nav-item ">@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin", new { @class = "nav-link text-primary" })</li>
-                        <li class="nav-item">@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin", new { @class = "nav-link text-primary" })</li>
+                        <li class="nav-item"><a href="/Panel/" class="btn nav-link text-primary">Panel</a></li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Aeg.CarService.Web.Controllers.Web
 {
+    [Authorize(Roles = "Admin")]
     public class BlogController : Controller
     {
         private readonly Repository<Blog> repoBlog= new Repository<Blog>();

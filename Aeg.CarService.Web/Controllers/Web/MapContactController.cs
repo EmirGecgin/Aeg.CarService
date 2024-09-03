@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Aeg.CarService.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class MapContactController : Controller
     {
         private readonly Repository<MapContact> repoMapContact= new Repository<MapContact>();
