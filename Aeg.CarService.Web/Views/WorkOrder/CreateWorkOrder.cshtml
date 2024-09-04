@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Create Work Order";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-md-6">
+        <label>Brand</label>
+        <select name="brand" class="form-control">
+            <option>Volvo</option>
+            <option>BMW</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label>Model</label>
+        <select name="model" class="form-control">
+            <option>S40</option>
+            <option>M3</option>
+        </select>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-6">
+        <label>Licence Plate</label>
+        <input type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Chassis Number</label>
+        <input type="text" class="form-control" />
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-6">
+        <label>Fuel Type</label>
+        <select name="fuel" class="form-control">
+            <option>Gas</option>
+            <option>Diesel</option>
+            <option>Electric</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label>Date of Arrival</label>
+        <input type="text" class="form-control" />
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-12">
+        <label>Arrival Reason</label>
+        <textarea class="form-control"></textarea>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-12 ">
+        <input type="submit" class="btn btn-primary float-end" value="Save"/>
+    </div>
+</div>
+
+
+

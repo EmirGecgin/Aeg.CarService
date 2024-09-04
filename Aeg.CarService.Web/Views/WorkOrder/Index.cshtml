@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Aeg.CarService.Entity.CarService.Client>
+@{
+    ViewBag.Title = "Work Order";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col">
+            <label>Search Client(Name Surname/Phone)</label>
+            <input type="text" class="form-control" name="search" />
+        </div>
+        <div class="col">
+            <br />
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </div>
+    </div>
+}
+
+<table class="table table table-responsive table-bordered table-striped mt-4">
+    <tr>
+        <th>
+            <label>Name Surname/Title</label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                <a href="/WorkOrder/CreateWorkOrder/@item.Id" type="button" class="btn btn-sm btn-success">Create Work Order</a>
+            </td>
+        </tr>
+    }
+</table>
+
+

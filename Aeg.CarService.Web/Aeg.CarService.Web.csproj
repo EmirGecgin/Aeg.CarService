@@ -260,6 +260,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarService\ClientController.cs" />
+    <Compile Include="Controllers\CarService\WorkOrderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
@@ -303,6 +304,8 @@
     <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\Client\Create.cshtml" />
     <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\WorkOrder\Index.cshtml" />
+    <Content Include="Views\WorkOrder\CreateWorkOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
