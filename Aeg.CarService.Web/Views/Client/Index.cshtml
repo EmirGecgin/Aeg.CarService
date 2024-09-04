@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Aeg.CarService.Entity.CarService.Client>
+
+@{
+    ViewBag.Title = "Client";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<p class="float-end">
+    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table table-responsive table-bordered table-striped">
+    <tr>
+        <th>
+            <label>Name Surname/Title</label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                <div class="btn-group">
+                    <a href="/Client/Edit/@item.Id" class="btn btn-sm btn-warning mx-1">Edit</a>
+                    <button type="button" onclick="deleteModal(this)" class="btn btn-sm btn-danger" data-namesurname="@item.NameSurname" data-id="@item.Id" data-bs-toggle="modal" data-bs-target="#DeleteModal">
+                        Delete
+                    </button>
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+<div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Service</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you want to delete <span class="text-danger" id="namesurname"></span> client?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("ClientDelete", "Client", FormMethod.Post))
+                {
+                    <input type="hidden" name="id" id="deleteId" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        function deleteModal(btn) {
+            var id = $(btn).data('id');
+            $('#deleteId').val(id);
+            var namesurname = $(btn).data('namesurname');
+            $('#namesurname').text(namesurname);
+        }
+    </script>
+}

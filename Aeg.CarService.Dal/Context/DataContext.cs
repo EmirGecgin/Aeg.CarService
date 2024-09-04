@@ -1,4 +1,5 @@
-﻿using Aeg.CarService.Entity.Web;
+﻿using Aeg.CarService.Entity.CarService;
+using Aeg.CarService.Entity.Web;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -16,5 +17,6 @@ namespace Aeg.CarService.Dal
         DbSet<About> Abouts { get; set; }
         DbSet<Blog> Blogs { get; set; }
         DbSet<MapContact> MapContact { get; set; }
+        DbSet<Client> Clients { get; set; }
     }
 }
