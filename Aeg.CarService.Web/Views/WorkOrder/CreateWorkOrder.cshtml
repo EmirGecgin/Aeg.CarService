@@ -6,16 +6,12 @@
 <div class="row">
     <div class="col-md-6">
         <label>Brand</label>
-        <select name="brand" class="form-control">
-            <option>Volvo</option>
-            <option>BMW</option>
-        </select>
+        @Html.DropDownList("Brand", new SelectList(ViewBag.Brand,"Id","BrandName"),  "Choose Brand", new { @class = "form-control",@required="required",@onchange="FillModel()" })
     </div>
     <div class="col-md-6">
         <label>Model</label>
-        <select name="model" class="form-control">
-            <option>S40</option>
-            <option>M3</option>
+        <select name="Id" id="ModelId" class="form-control">
+            
         </select>
     </div>
 </div>
@@ -55,5 +51,30 @@
     </div>
 </div>
 
-
+<script>
+    function FillModel() {
+        var brandId = $("#Brand").val();
+        //alert(brandId);
+        if ($("#Brand").val() == "") {
+            $("#ModelId").html("");
+            $("#ModelId").append(
+                $('<option></option>').val("").html("Choose Model")
+            );
+        }
+        else {
+            $.ajax({
+                url: "/BrandModel/GetModels",
+                type: "GET",
+                dataType: "json",
+                data: { Id: brandId },
+                success: function (models) {
+                    $("#ModelId").html("");
+                    $.each(models, function (i, model) {
+                        $("#ModelId").append($("<option></option>").val(model.Id).html(model.ModelName));
+                    });
+                }
+            });
+        }
+    }
+</script>
 

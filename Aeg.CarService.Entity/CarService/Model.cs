@@ -11,7 +11,8 @@ namespace Aeg.CarService.Entity.CarService
     {
         [Key]
         public int Id { get; set; }
-        public int ModelName { get; set; }
+        public string ModelName { get; set; }
+        public int BrandId { get; set; }
         public virtual Brand Brand { get; set; }
     }
 }

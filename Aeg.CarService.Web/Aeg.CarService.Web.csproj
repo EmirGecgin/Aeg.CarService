@@ -259,6 +259,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CarService\BrandModelController.cs" />
     <Compile Include="Controllers\CarService\ClientController.cs" />
     <Compile Include="Controllers\CarService\WorkOrderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -306,6 +307,7 @@
     <Content Include="Views\Client\Edit.cshtml" />
     <Content Include="Views\WorkOrder\Index.cshtml" />
     <Content Include="Views\WorkOrder\CreateWorkOrder.cshtml" />
+    <Content Include="Views\BrandModel\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

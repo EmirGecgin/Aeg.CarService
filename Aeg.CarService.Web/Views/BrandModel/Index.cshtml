@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Aeg.CarService.Entity.CarService.Brand>
+@{
+    ViewBag.Title = "Brands";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("CreateBrand", "BrandModel"))
+{
+    <div class="row">
+        <div class="col">
+            <label>Brand</label>
+            <input type="text" name="BrandName" class="form-control" />
+            
+        </div>
+        <div class="col">
+            <br />
+            <input type="submit" class="btn btn-primary" value="Add" />
+        </div>
+    </div>
+}
+<hr />
+<table class="table table table-responsive table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BrandName)
+        </th>
+        <th>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandName)
+            </td>
+            <td>
+                @Html.ActionLink("Models", "ModelList", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" })
+            </td>
+        </tr>
+    }
+</table>
