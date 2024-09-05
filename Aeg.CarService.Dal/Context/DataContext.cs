@@ -9,14 +9,16 @@ using System.Threading.Tasks;
 
 namespace Aeg.CarService.Dal
 {
-    public class DataContext:DbContext
+    public class DataContext : DbContext
     {
         public DbSet<Slider> Sliders { get; set; }
-        public DbSet <Announcements> Announcements { get; set; }
+        public DbSet<Announcements> Announcements { get; set; }
         public DbSet<Services> Services { get; set; }
-        DbSet<About> Abouts { get; set; }
-        DbSet<Blog> Blogs { get; set; }
-        DbSet<MapContact> MapContact { get; set; }
-        DbSet<Client> Clients { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<MapContact> MapContact { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Model> Models { get; set; }
     }
 }
