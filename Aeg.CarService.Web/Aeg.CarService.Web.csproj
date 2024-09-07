@@ -308,6 +308,7 @@
     <Content Include="Views\WorkOrder\Index.cshtml" />
     <Content Include="Views\WorkOrder\CreateWorkOrder.cshtml" />
     <Content Include="Views\BrandModel\Index.cshtml" />
+    <Content Include="Views\BrandModel\ModelList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -13,6 +13,7 @@ namespace Aeg.CarService.Entity.CarService
         public int Id { get; set; }
         public string ModelName { get; set; }
         public int BrandId { get; set; }
+        public bool IsDeleted { get; set; }
         public virtual Brand Brand { get; set; }
     }
 }

@@ -1,15 +1,16 @@
-﻿@model IEnumerable<Aeg.CarService.Entity.CarService.Brand>
+﻿@model IEnumerable<Aeg.CarService.Entity.CarService.Model>
 @{
-    ViewBag.Title = "Brands";
+    ViewBag.Title = ViewBag.BrandName;
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@using (Html.BeginForm("CreateBrand", "BrandModel"))
+@using (Html.BeginForm("CreateModel", "BrandModel"))
 {
     <div class="row">
         <div class="col">
-            <label>Brand</label>
-            <input type="text" name="BrandName" class="form-control" />
+            <label>Model</label>
+            <input type="text" name="ModelName" class="form-control" />
+            <input type="hidden" name="BrandId" value="@ViewBag.BrandId" />
         </div>
         <div class="col">
             <br />
@@ -17,42 +18,45 @@
         </div>
     </div>
 }
+
 <hr />
-<table class="table table table-responsive table-bordered table-striped">
+<table class="table table table-responsive table-bordered table-striped mt-2">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BrandName)
+            @Html.DisplayNameFor(model => model.ModelName)
         </th>
-        <th>
-        </th>
+        <th></th>
     </tr>
+
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.BrandName)
+                @Html.DisplayFor(modelItem => item.ModelName)
             </td>
             <td>
-                @Html.ActionLink("Models", "ModelList", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" })
-                <button type="button" onclick="deleteModal(this)" class="btn-sm btn btn-danger" data-brandname="@item.BrandName" data-id="@item.Id" data-bs-toggle="modal" data-bs-target="#DeleteModal">
+                <button type="button" onclick="deleteModal(this)" class="btn-sm btn btn-danger" data-modelname="@item.ModelName" data-id="@item.Id" data-bs-toggle="modal" data-bs-target="#DeleteModal">
                     Delete
                 </button>
             </td>
         </tr>
     }
 </table>
+<div class="float-end mt-2">
+    <a href="/BrandModel/Index" class="btn btn-warning">Return the Brands</a>
+</div>
 <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Brand</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Model</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Do you want to delete <strong id="brandname"></strong> brand?
+                Do you want to delete <strong id="modelname"></strong> model?
             </div>
             <div class="modal-footer">
-                @using (Html.BeginForm("BrandDelete", "BrandModel", FormMethod.Post))
+                @using (Html.BeginForm("ModelDelete", "BrandModel", FormMethod.Post))
                 {
                     <input type="hidden" name="id" id="deleteId" />
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -67,8 +71,8 @@
     <script>
         function deleteModal(btn) {
             var id = $(btn).data('id');
-            var brandName = $(btn).data('brandname');
-            $('#brandname').text(brandName);
+            var modelName = $(btn).data('modelname');
+            $('#modelname').text(modelName);
             $('#deleteId').val(id);
         }
     </script>
